@@ -8,7 +8,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 app = FastAPI()
 
-engine = create_async_engine('sqlite+aiosqlite:///books.db')
+engine = create_async_engine('sqlite+aiosqlite:///./books.db')
 
 new_session = async_sessionmaker(engine, expire_on_commit=False)
 
