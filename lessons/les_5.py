@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, Response, Depends
 from authx import AuthX, AuthXConfig
 from pydantic import BaseModel
-
+'''Авторизация на FastAPI — Регистрация и Аутентификация пользователей'''
 app = FastAPI()
 
 

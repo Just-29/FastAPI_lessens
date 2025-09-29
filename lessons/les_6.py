@@ -3,6 +3,7 @@ import asyncio
 
 from fastapi import FastAPI, BackgroundTasks
 
+'''Фоновые задачи в FastAPI — Асинхронность и Многопоточность'''
 app = FastAPI()
 
 def sync_task():

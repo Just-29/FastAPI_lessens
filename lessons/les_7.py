@@ -2,7 +2,7 @@ from fastapi import FastAPI, File, UploadFile
 
 from fastapi.responses import StreamingResponse, FileResponse
 
-
+'''Работа с файлами в FastAPI — Загрузка и умное скачивание'''
 app = FastAPI()
 
 @app.pose("/file")
