@@ -9,22 +9,22 @@ app = FastAPI()
 config = AuthXConfig()
 config.JWT_SECRET_KEY = "SECRET_KEY"
 config.JWT_ACCESS_COOKIE_NAME = "my_access_token"
-config.JWT_TOKEN_LOCATION = "cookies"
+config.JWT_TOKEN_LOCATION = ["headers", "cookies"]
 
 security = AuthX(config=config)
 
 
-class UserLoginShema(BaseModel):
+class UserLoginSchema(BaseModel):
     username: str
     password: str
 
 
 @app.post("/login")
-def login(creds: UserLoginShema, response: Response):
+def login(creds: UserLoginSchema, response: Response):
     if creds.username == "test" and creds.password == "test":
         token = security.create_access_token(uid="12345")
         response.set_cookie(config.JWT_ACCESS_COOKIE_NAME, token)
-        return {"accec_token": token}
+        return {"access_token": token}
     raise HTTPException(status_code=401, detail="Incorrect username or password")
 
 
